@@ -1,4 +1,5 @@
 # scode-generator
+
 .env
 TELEGRAM_BOT_TOKEN=
 GOOGLE_DATA_SHEET=PassCodes
