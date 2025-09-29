@@ -8,7 +8,7 @@ async function getLangs() {
     const doc = new GoogleSpreadsheet(process.env.GOOGLE_SHEET_ID);
 
     // Аутентификация сервисным аккаунтом (v3+)
-    const creds = require(process.env.GOOGLE_APPLICATION_CREDENTIALS);
+    const creds = JSON.parse(process.env.GOOGLE_CREDENTIALS_JSON);
     await doc.useServiceAccountAuth({
       client_email: creds.client_email,
       private_key: creds.private_key,
@@ -79,7 +79,7 @@ async function saveToPassCodes(userData) {
     console.log('Сохранение данных в PassCodes...');
     const doc = new GoogleSpreadsheet(process.env.GOOGLE_SHEET_ID);
 
-    const creds = require(process.env.GOOGLE_APPLICATION_CREDENTIALS);
+    const creds = JSON.parse(process.env.GOOGLE_CREDENTIALS_JSON);
     await doc.useServiceAccountAuth({
       client_email: creds.client_email,
       private_key: creds.private_key,
