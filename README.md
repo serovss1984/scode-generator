@@ -1,8 +1,8 @@
-# scode-generator
-
-.env
-TELEGRAM_BOT_TOKEN=
-GOOGLE_DATA_SHEET=PassCodes
-GOOGLE_LANG_SHEET=Langs
-GOOGLE_SHEET_ID=
+# scode-generator  
+  
+.env  
+TELEGRAM_BOT_TOKEN=  
+GOOGLE_DATA_SHEET=PassCodes  
+GOOGLE_LANG_SHEET=Langs  
+GOOGLE_SHEET_ID=  
 GOOGLE_CREDENTIALS_JSON=google JWT one string
