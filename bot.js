@@ -1,7 +1,7 @@
 require("dotenv").config();
 const { Telegraf, Markup } = require("telegraf");
 const { getLangs, saveToPassCodes } = require("./google");
-
+const http = require('http');
 const bot = new Telegraf(process.env.TELEGRAM_BOT_TOKEN);
 
 let langsCache = {};
@@ -168,6 +168,24 @@ bot.launch()
   .then(() => console.log("Бот запущен!"))
   .catch(err => console.error("Ошибка запуска бота:", err));
 
+const PORT = process.env.PORT || 3000;
+
+// простой health endpoint, чтобы Render видел, что порт занят
+const server = http.createServer((req, res) => {
+  if (req.url === '/health') {
+    res.writeHead(200, { 'Content-Type': 'text/plain' });
+    return res.end('ok');
+  }
+  res.writeHead(200, { 'Content-Type': 'text/plain' });
+  res.end('Hello from bot');
+});
+
+server.listen(PORT, () => {
+  console.log(`HTTP server listening on port ${PORT}`);
+});
+
 // Graceful shutdown
 process.once('SIGINT', () => bot.stop('SIGINT'));
 process.once('SIGTERM', () => bot.stop('SIGTERM'));
+
+
