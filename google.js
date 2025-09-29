@@ -50,26 +50,6 @@ async function getLangs() {
 
   } catch (error) {
     console.error('Ошибка загрузки языков:', error);
-
-    // fallback
-    return {
-      '1': {
-        name: 'English',
-        text1: 'Please enter unit serial number (0000AA9999)',
-        text2: 'Wrong unit serial number. Please enter unit serial number 0000AA9999',
-        text3: 'Please select a date',
-        text4: 'Your pass code is',
-        text5: 'Thank you and good luck!'
-      },
-      '2': {
-        name: 'Русский',
-        text1: 'Пожалуйста введите серийный номер в формате (0000АА9999)',
-        text2: 'Не правильный серийный номер. Пожалуйста введите серийный номер в формате 0000АА9999',
-        text3: 'Выберите дату',
-        text4: 'Ваш сервисный код',
-        text5: 'Спасибо и удачи!'
-      }
-    };
   }
 }
 
